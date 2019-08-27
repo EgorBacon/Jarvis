@@ -9,7 +9,7 @@ TODO:
 3. Add face learning on the go functionality
 4. Add Raspi Zero
 
-test putText
+This is for Gleb
 
 Usage
 My code also looks at the folder names of images so:
