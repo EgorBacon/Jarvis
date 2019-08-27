@@ -9,6 +9,8 @@ TODO:
 3. Add face learning on the go functionality
 4. Add Raspi Zero
 
+test putText
+
 Usage
 My code also looks at the folder names of images so:
 1. In folder images make a folder for each person you have photos of (e.g will-smith)
