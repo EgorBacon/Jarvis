@@ -19,4 +19,4 @@ My code also looks at the folder names of images so:
 
 This is a just an ongoing project for me so...this doesn't work. However if you have any tips, please explain more because I am keen to learn more about this.
 
-Will post on this repo when it will.
+Will post on this repo when it will be complete.
