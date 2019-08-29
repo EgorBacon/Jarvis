@@ -5,7 +5,7 @@ I am very much a beginner when it comes to python, and most of my code was just 
 
 TODO:
 1. Fix basic error
-2. Make a deep learned library
+2. Add a deep learned library (tensorflow??)
 3. Add face learning on the go functionality
 4. Add Raspi Zero
 
