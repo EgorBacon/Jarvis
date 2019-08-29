@@ -10,6 +10,7 @@ TODO:
 4. Add Raspi Zero
 
 Usage:
+
 My code also looks at the folder names of images so:
 1. In folder images make a folder for each person you have photos of (e.g will-smith)
 2. run faces-train.py
