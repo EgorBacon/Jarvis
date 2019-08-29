@@ -9,8 +9,8 @@ TODO:
 3. Add face learning on the go functionality
 4. Add Raspi Zero
 
-Usage
-1. My code also looks at the folder names of images so:
+Usage:
+My code also looks at the folder names of images so:
 2. In folder images make a folder for each person you have photos of (e.g will-smith)
 3. run faces-train.py
 4. run face-detect.py (Doesn't work has error and face recognition is very bad)
