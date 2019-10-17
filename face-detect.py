@@ -1,14 +1,18 @@
 import numpy as np
 import cv2
 import pickle
+import os
 
-face_cascade = cv2.CascadeClassifier('C:\\Users\\Egor\\Desktop\\Work\\Jarvis\\data\\haarcascade_frontalface_alt2.xml')
+script_dir = os.path.dirname(__file__)
+classifier_path = os.path.join(script_dir, './data/haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier(classifier_path)
 recognniser = cv2.face.LBPHFaceRecognizer_create()
 labels = {"person's name": 1}
 recognniser.read("trainer.yml")
 with open("labels.pickle", 'rb') as f:
 	og_labels = pickle.load(f)
-	labels = {v:k for k,v in labels.items()}
+	labels = {v:k for k,v in og_labels.items()}
+print(labels)
 
 cap = cv2.VideoCapture(0)
 
@@ -26,16 +30,16 @@ while(True):
 
 		#recognize? Deep learning model to predict things
 		id_, conf = recognniser.predict(roi_gray)
-		if conf>=50: #and conf<=60:
-			print(id_)
+		print(id_, conf)
+		if conf >= 50: #and conf<=60:
 			print(labels[id_])
 			font = cv2.FONT_HERSHEY_SIMPLEX
 			name = labels[id_]
-			color(255)
+			color = (0, 255, 0)
 			stroke = 2
-			cv2.putText(frame, name (x,y), font, 1, color, stroke, cv2.LINE_AA)
+			cv2.putText(frame, name, (x,y), font, 1, color, stroke, cv2.LINE_AA)
 		else:
-			print("No, common faces detected")
+			print("No common faces detected")
 
 		img_item = "my-image.png"
 		cv2.imwrite(img_item, roi_gray)
