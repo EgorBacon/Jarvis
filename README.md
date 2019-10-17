@@ -5,11 +5,12 @@ I am very much a beginner when it comes to python, and most of my code was just 
 
 TODO:
 1. Fix basic error
-2. Add a deep learned library (tenserflow???)
+2. Add a deep learned library (tensorflow???)
 3. Add face learning on the go functionality
 4. Add NVidia Pi
 
-Usage
+### Usage
+
 My code also looks at the folder names of images so:
 1. In folder images make a folder for each person you have photos of (e.g will-smith)
 2. run faces-train.py
@@ -18,3 +19,9 @@ My code also looks at the folder names of images so:
 This is a just an ongoing project for me so...this doesn't work. However if you have any tips, please explain more because I am keen to learn more about this.
 
 Will post on this repo when it will be complete.
+
+### Installation
+
+Clone this project and then install its requirements
+
+    pip install -r requirements.txt

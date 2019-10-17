@@ -7,7 +7,9 @@ import pickle
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 img_dir = os.path.join(BASE_DIR, "images")
 
-face_cascade = cv2.CascadeClassifier('C:\\Users\\Egor\\Desktop\\Work\\Jarvis\\data\\haarcascade_frontalface_alt2.xml')
+script_dir = os.path.dirname(__file__)
+classifier_path = os.path.join(script_dir, './data/haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier(classifier_path)
 recognniser = cv2.face.LBPHFaceRecognizer_create()
 
 current_id = 0
