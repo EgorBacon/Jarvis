@@ -9,7 +9,7 @@ TODO:
 3. Add face learning on the go functionality
 4. Add Raspi Zero
 
-Usage:
+### Usage
 
 My code also looks at the folder names of images so:
 1. In folder images make a folder for each person you have photos of (e.g will-smith)
@@ -19,3 +19,9 @@ My code also looks at the folder names of images so:
 This is a just an ongoing project for me so...this doesn't work. However if you have any tips, please explain more because I am keen to learn more about this.
 
 Will post on this repo when it will.
+
+### Installation
+
+Clone this project and then install its requirements
+
+    pip install -r requirements.txt
