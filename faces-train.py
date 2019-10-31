@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import pickle
+from face_lib import FaceROI, Photo
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 img_dir = os.path.join(BASE_DIR, "images")
@@ -14,9 +15,8 @@ recognniser = cv2.face.LBPHFaceRecognizer_create()
 
 current_id = 0
 label_ids = {}
-y_labels = []
-x_train = []
 
+dataset = []
 
 for root, dirs, files in os.walk(img_dir):
 	for file in files:
@@ -31,22 +31,21 @@ for root, dirs, files in os.walk(img_dir):
 				print(label_ids)
 				#y_labels.append(label)#some number
 				#x_train.append(path)# verify this image, turn into a NUMPY array, GRAY
-				pil_image = Image.open(path).convert("L")
-				size = (500,500)
-				final_img = pil_image.resize(size, Image.ANTIALIAS)
-				image_array = np.array(final_img, "uint8")
-				print(image_array)
-				faces = face_cascade.detectMultiScale(image_array, 1.5, 5)
-
-				for (x,y,w,h) in faces:
-					roi = image_array[y:y+h, x:x+w]
-					x_train.append(roi)
-					y_labels.append(id_)
+				photo = Photo.load_from_file(path)
+				faces = photo.detect_faces()
+				for face in faces:
+					face.label = label
+					face.label_id = id_
+					dataset.append(face)
 
 #print(y_labels)
 #print(x_train)
 with open("labels.pickle", 'wb') as f:
 	pickle.dump(label_ids, f)
 
-recognniser.train(x_train, np.array(y_labels))
+labels = [f.label_id for f in dataset]
+train = [f.image_data for f in dataset]
+
+
+recognniser.train(train, np.array(labels))
 recognniser.save("trainer.yml")
